@@ -1,26 +1,26 @@
-﻿// Calculator.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
+﻿#include <iostream>
+#include <cstring>
 #include "Calc.library.h"
-
-using namespace std;
+using std::cout;
+using std::cin;
 
 void run() {
-    char buffer[500];
+	char buffer[500];
 
-    while (true)
-    {
-        cout << "Enter expression: ";
-        cin.getline(buffer, sizeof(buffer));
-        if (strncmp("exit", buffer, 4) == 0)
-            break;
-        cout << "Result: " << calculate(buffer) << '\n';
-    }
+	cout << "Введите 'exit' для выхода.\n";
+
+	while (true) {
+		cout << "Введите выражение: ";
+		cin.getline(buffer, sizeof(buffer));
+		cout << buffer << '\n';
+		if (strncmp("exit", buffer, 4) == 0)
+			break;
+		cout << "Результат: " << calculate(buffer) << '\n';
+	}
 }
 
 int main()
 {
-    run();
+	setlocale(LC_ALL, "ru_RU");
+	run();
 }
-
